@@ -15,6 +15,10 @@ namespace app.Controllers
             return View();
         }
 
+        public IActionResult Browse()
+        {
+            return View();
+        }
         public IActionResult Create()
         {
             return View();
