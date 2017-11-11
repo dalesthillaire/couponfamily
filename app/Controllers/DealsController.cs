@@ -8,17 +8,23 @@ using app.Models;
 
 namespace app.Controllers
 {
-    public class HomeController : Controller
+    public class DealsController : Controller
     {
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Login(object LoginViewModel)
+
+        public IActionResult Create()
         {
             return View();
         }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+        
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
