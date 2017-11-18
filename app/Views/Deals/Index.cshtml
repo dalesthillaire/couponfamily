@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Deals Page";
+﻿@using app.Models;
+@model List<DealViewModel>
+@{
+    ViewData["Title"] = "My Current Deals";
 }
 <style>
 .coupon {
@@ -112,66 +114,63 @@ sup {
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
-<div class="row">
-    <div class="col">
-        <h2>List of Deals</h2>
-
+        @foreach(var deal in Model){
         <div class="row" id="red">
-        <div class="col-md-5">
-            <div class="panel panel-danger coupon">
-              <div class="panel-heading" id="head">
-                <div class="panel-title" id="title">
-                    <i class="fa fa-github fa-2x"></i>
-                    <span class="hidden-xs">Automatic Transmission Service</span>
-                    <span class="visible-xs">Automatic Transmission Service</span>
-                </div>
-              </div>
-              <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
-                <div class="col-md-12 well well-sm">
-                    <div id="business-info">
-                        <ul>
-                            <li><span><i class="fa fa-phone"></i> (123) 456-789</span></li>
-                            <li><span><i class="fa fa-map-marker"></i> 345 S Main Street Bootsnippville, UT</span></li>
-                        </ul>
+                <div class="col-md-5">
+                    <div class="panel panel-danger coupon">
+                    <div class="panel-heading" id="head">
+                        <div class="panel-title" id="title">
+                            <i class="fa fa-github fa-2x"></i>
+                            <span class="hidden-xs">@deal.Name</span>
+                            <span class="visible-xs">@deal.Name</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-9">
-                    <ul class="items">
-                        <li>Add up to 5 quarts of motor oil (per specification)</li>
-                        <li>Complimentary multi-point inspection</li>
-                        <li>Drain and refill trnasmission fluid</li>
-                        <li>System inspection</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <div class="offer text-danger">
-                        <span class="usd"><sup>$</sup></span>
-                        <span class="number">39</span>
-                        <span class="cents"><sup>95</sup></span>
+                    <div class="panel-body">
+                        <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                        <div class="col-md-12 well well-sm">
+                            <div id="business-info">
+                                <ul>
+                                    <li><span><i class="fa fa-phone"></i> (123) 456-789</span></li>
+                                    <li><span><i class="fa fa-map-marker"></i> 345 S Main Street Bootsnippville, UT</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <ul class="items">
+                                <li>Add up to 5 quarts of motor oil (per specification)</li>
+                                <li>Complimentary multi-point inspection</li>
+                                <li>Drain and refill trnasmission fluid</li>
+                                <li>System inspection</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="offer text-danger">
+                                <span class="usd"><sup>$</sup></span>
+                                <span class="number">39</span>
+                                <span class="cents"><sup>95</sup></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="disclosure">Using Genuine Oil Filter and 
+                            multigrade oil up to vehicle specification. Lube as 
+                            necessary. Ester Oil or Synthetic available at additional 
+                            cost. Excludes hazardous waste fee, tax and shop supplies, 
+                            where applicable. Offer not valid with previous charges or 
+                            with any other offers or specials. Customer must offer at 
+                            time of write-up. No cash value.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <p class="disclosure">Using Genuine Oil Filter and 
-                    multigrade oil up to vehicle specification. Lube as 
-                    necessary. Ester Oil or Synthetic available at additional 
-                    cost. Excludes hazardous waste fee, tax and shop supplies, 
-                    where applicable. Offer not valid with previous charges or 
-                    with any other offers or specials. Customer must offer at 
-                    time of write-up. No cash value.</p>
-                </div>
-              </div>
-              <div class="panel-footer">
-                <div class="coupon-code">
-                    Code: GBWO2
-                    <span class="print">
-                        <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
-                    </span>
-                </div>
-                <div class="exp">Expires: Sep 30, 2016</div>
-              </div>
+                    <div class="panel-footer">
+                        <div class="coupon-code">
+                            Code: GBWO2
+                            <span class="print">
+                                <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+                            </span>
+                        </div>
+                        <div class="exp">Expires: Sep 30, 2016</div>
+                    </div>
+                    </div>
             </div>
-      </div>
-    </div>
-    </div>
-</div>
+         </div>
+        }
+ 
