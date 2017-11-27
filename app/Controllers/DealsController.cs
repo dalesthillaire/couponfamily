@@ -5,14 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using app.Models;
+using app.Services;
+using AutoMapper;
 
 namespace app.Controllers
 {
     public class DealsController : Controller
     {
+        private readonly IMapper _mapper;
+        private readonly DealService _dealService;
+
+        public DealsController(IMapper mapper){
+            _mapper = mapper;
+            _dealService = new DealService();
+        }
         public IActionResult Index()
         {
-            return View();
+           var result = _dealService.GetAll();
+           var viewModel = _mapper.Map<List<DealViewModel>>(result);
+
+            return View(viewModel);
         }
 
         public IActionResult Browse()
