@@ -14,10 +14,65 @@
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+              <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     </environment>
+    <style>
+
+footer{
+  background-color:#222222;
+  padding: 60px 0px;
+}
+
+footer ul{
+    list-style:none;
+    margin:0 auto;
+    display:inline-block;
+    padding-top:50px;
+}
+
+footer ul li{
+    float:left;
+}
+
+footer ul li a{
+  color:#b1aca1;
+    padding:20px;
+}
+
+footer ul li a:hover{
+  color:#7dabdb;
+  text-decoration:none;
+}
+
+.footer-top{
+  padding-bottom:50px;
+}
+
+.footer-top .fa{
+    font-size:18px;
+    color: #FFF;
+    padding-right:10px;
+}
+
+.footer-top a{
+    color:#FFF;
+    text-decoration:none;
+}
+
+.footer-top .col-lg-2:hover .fa , .footer-top .col-lg-2:hover a{
+    color:#7dabdb;
+}
+
+.copyright p{
+  color: #FFF;
+  font-size:12px;
+  padding:15px 0 10px 0;
+}
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -40,11 +95,66 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - app</p>
-        </footer>
+        
+
     </div>
+          <footer>
+        <div class="footer-top"> 
+           <div class="container">
+             <div class="col-lg-3 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-facebook fa-2x"></i>Facebook</a>
+             </div>
+              <div class="col-lg-3 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-twitter fa-2x"></i>Twitter</a>
+             </div>
+              <div class="col-lg-3 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-github fa-2x"></i>Github</a>
+             </div>
+              <div class="col-lg-3 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-google-plus fa-2x"></i>Google</a>
+             </div>
+           </div> 
+        </div>  
+        
+        <div class="container" style="border-top:1px solid #FFF;">
+            <div class="row text-center">   
+                <div class="col-lg-6 col-lg-offset-3">
+                      <ul class="menu">
+                                 
+                             <li>
+                                <a href="#">Home</a>
+                              </li>
+                                   
+                              <li>
+                                 <a href="#">About</a>
+                              </li>
+                                   
+                              <li>
+                                <a href="#">Blog</a>
+                              </li>
+                                   
+                              <li>
+                                <a href="#">Contact Us</a>
+                             </li>
+                   
+                        </ul>
+                </div>
+            </div>
+        </div>
+            <div class="copyright">
+     <div class="container">
+       
+         <div class="row text-center">
+          <p>Copyright © 2017 All rights reserved</p>
+         </div>
+         
+     </div>
+    </div>
+        
+    </footer>
+    
+    
+
 
     <environment include="Development">
         
