@@ -1,0 +1,12 @@
+bin/
+obj/
+
+*.pdb
+*.dll
+*.dll
+*.pdb
+app/obj/project.assets.json
+*.dll
+/app/obj
+/app/obj
+/app/bin
