@@ -7,17 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 using app.Models;
 using app.Services;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace app.Controllers
 {
+    [Authorize]
     public class DealsController : Controller
     {
         private readonly IMapper _mapper;
         private readonly DealService _dealService;
 
-        public DealsController(IMapper mapper){
+        public DealsController(IMapper mapper, ApplicationDbContext context)
+        {
             _mapper = mapper;
-            _dealService = new DealService();
+            _dealService = new DealService(context);
         }
         public IActionResult Index()
         {

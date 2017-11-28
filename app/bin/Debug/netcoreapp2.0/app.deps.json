@@ -26,6 +26,7 @@
           "AutoMapper": "6.2.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.0.1",
           "Microsoft.AspNetCore.All": "2.0.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0"
         },
         "runtime": {

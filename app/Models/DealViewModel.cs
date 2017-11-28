@@ -8,8 +8,8 @@ namespace app.Models
     public class DealViewModel{
        public int Id { get; set; } 
        public int BusinessId { get; set; } 
-       public string Name { get; set; } 
-       public List<string> Details { get; set; }
+       public string Name { get; set; }
+        public string Detail { get; set; }
        public string Phone { get; set; } 
        public string StreetAddress { get; set; }
        public string City { get; set; }

@@ -18,3 +18,13 @@ C:\Users\Dale\Documents\GitHub\couponfamily\app\bin\Debug\netcoreapp2.0\app.dll
 C:\Users\Dale\Documents\GitHub\couponfamily\app\bin\Debug\netcoreapp2.0\app.pdb
 C:\Users\Dale\Documents\GitHub\couponfamily\app\obj\Debug\netcoreapp2.0\app.dll
 C:\Users\Dale\Documents\GitHub\couponfamily\app\obj\Debug\netcoreapp2.0\app.pdb
+C:\Users\590587\Downloads\couponfamily-development\app\bin\Debug\netcoreapp2.0\app.deps.json
+C:\Users\590587\Downloads\couponfamily-development\app\bin\Debug\netcoreapp2.0\app.runtimeconfig.json
+C:\Users\590587\Downloads\couponfamily-development\app\bin\Debug\netcoreapp2.0\app.runtimeconfig.dev.json
+C:\Users\590587\Downloads\couponfamily-development\app\bin\Debug\netcoreapp2.0\app.dll
+C:\Users\590587\Downloads\couponfamily-development\app\bin\Debug\netcoreapp2.0\app.pdb
+C:\Users\590587\Downloads\couponfamily-development\app\obj\Debug\netcoreapp2.0\app.csproj.CoreCompileInputs.cache
+C:\Users\590587\Downloads\couponfamily-development\app\obj\Debug\netcoreapp2.0\app.AssemblyInfoInputs.cache
+C:\Users\590587\Downloads\couponfamily-development\app\obj\Debug\netcoreapp2.0\app.AssemblyInfo.cs
+C:\Users\590587\Downloads\couponfamily-development\app\obj\Debug\netcoreapp2.0\app.dll
+C:\Users\590587\Downloads\couponfamily-development\app\obj\Debug\netcoreapp2.0\app.pdb

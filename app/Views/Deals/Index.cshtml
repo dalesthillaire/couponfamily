@@ -111,6 +111,7 @@ sup {
     font-size: 14px;
     float: right;
 }
+
 </style>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
@@ -139,12 +140,7 @@ sup {
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <ul class="items">
-                               @foreach (var dealDetail in @deal.Details)
-                               {
-                                   <li>@dealDetail</li>
-                               }
-                            </ul>
+                           @deal.Detail
                         </div>
                         <div class="col-md-4">
                             <div class="offer text-danger">
@@ -164,7 +160,7 @@ sup {
                                 <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
                             </span>
                         </div>
-                        <div class="exp">Expires: @string.Format("{0:MMMM dd, yyyy}", DateTime.Now)</div>
+                        <div class="exp">Expires: @string.Format("{0:MMMM dd, yyyy}", @deal.Expiration)</div>
                     </div>
                   </div>
             </div>

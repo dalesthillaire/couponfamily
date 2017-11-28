@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using app.Models;
+using Microsoft.AspNetCore.Razor.Language.Extensions;
 
 namespace app.Models
 {
@@ -8,7 +9,7 @@ namespace app.Models
        public int Id { get; set; } 
        public int BusinessId { get; set; } 
        public string Name { get; set; } 
-       public List<string> Details { get; set; }
+       public string Detail { get; set; }
        public string Phone { get; set; } 
        public string StreetAddress { get; set; }
        public string State { get; set; }
