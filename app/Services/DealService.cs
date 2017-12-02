@@ -7,11 +7,10 @@ using app.Models;
 
 namespace app.Services
 {
-    
     public class DealService
     {
         private readonly ApplicationDbContext _context;
-
+      
         public DealService(ApplicationDbContext context)
         {
             _context = context;
@@ -24,5 +23,13 @@ namespace app.Services
        {
            return _context.Deals.ToList();
        }
+
+        public Deal CreateDeal(Deal deal)
+        {
+            _context.Deals.Add(deal);
+            _context.SaveChanges();
+
+            return deal;
+        }
     }
 }

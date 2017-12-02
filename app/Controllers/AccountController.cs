@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using app.Models.Security;
+using Microsoft.WindowsAzure.Storage;
 
 
 namespace app.Controllers
@@ -77,17 +78,18 @@ namespace app.Controllers
                 await _signInManager.SignInAsync(user, true);
                 return RedirectToAction("Index", "Deals");
             }
+            //todo, display the error messages back to the user on the registration form
             AddErrors(result);
-            return View();
+            return RedirectToAction(nameof(Login), "Account");
         }
 
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogOff()
+        public async Task<IActionResult> Logoff()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction(nameof(Login), "Account");
         }
 
 

@@ -20,5 +20,6 @@ namespace app.Models
             // Add your customizations after calling base.OnModelCreating(builder);
         }
         public DbSet<Deal> Deals { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
     }
 }
