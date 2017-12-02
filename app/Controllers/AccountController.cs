@@ -78,8 +78,9 @@ namespace app.Controllers
                 await _signInManager.SignInAsync(user, true);
                 return RedirectToAction("Index", "Deals");
             }
+            //todo, display the error messages back to the user on the registration form
             AddErrors(result);
-            return View();
+            return RedirectToAction(nameof(Login), "Account");
         }
 
         // POST: /Account/LogOff
