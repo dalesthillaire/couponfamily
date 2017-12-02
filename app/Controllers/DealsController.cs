@@ -11,19 +11,27 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace app.Controllers
 {
+    [Authorize]
     public class DealsController : Controller
     {
         private readonly IMapper _mapper;
+        private readonly INotificationService _notificationService;
+
         private readonly DealService _dealService;
         private readonly SubScriptionService _subscriptionService;
-        private readonly NotificationService _notificationService;
+       
 
-        public DealsController(IMapper mapper, ApplicationDbContext context)
+        public DealsController(
+            IMapper mapper,
+            INotificationService notificationService,
+            ApplicationDbContext context
+           )
         {
             _mapper = mapper;
+            _notificationService = notificationService;
+
             _dealService = new DealService(context);
             _subscriptionService = new SubScriptionService(context);
-            _notificationService = new NotificationService();
         }
         public IActionResult Index()
         {

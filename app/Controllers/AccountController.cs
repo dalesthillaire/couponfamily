@@ -9,6 +9,7 @@ using Microsoft.WindowsAzure.Storage;
 
 namespace app.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

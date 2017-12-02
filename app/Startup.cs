@@ -1,6 +1,7 @@
 ﻿using System;
 using app.Models;
 using app.Models.Security;
+using app.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -58,6 +59,14 @@ namespace app
 
             services.AddMvc();
             services.AddAutoMapper();
+
+            //inject service for notification
+            //add the parameters used for sending the notification
+            services.AddTransient<INotificationService>(x => new NotificationService(
+                Configuration["twilioAccountSid"],
+                Configuration["twilioAuthenticationToken"],
+                Configuration["twilioAccountPhone"]
+                ));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
