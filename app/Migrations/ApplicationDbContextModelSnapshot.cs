@@ -25,13 +25,15 @@ namespace app.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("BusinessId");
+
+                    b.Property<string>("City");
+
                     b.Property<string>("Code");
 
                     b.Property<double>("Cost");
 
                     b.Property<string>("CostDescription");
-
-                    b.Property<string>("CreatorId");
 
                     b.Property<string>("Detail");
 
@@ -39,19 +41,23 @@ namespace app.Migrations
 
                     b.Property<DateTime>("Expiration");
 
-                    b.Property<string>("ImageUrl");
-
                     b.Property<bool>("IsActive");
 
                     b.Property<bool>("IsSponsored");
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Phone");
+
                     b.Property<DateTime>("StartDate");
 
-                    b.HasKey("Id");
+                    b.Property<string>("State");
 
-                    b.HasIndex("CreatorId");
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<string>("Zip");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Deals");
                 });
@@ -62,8 +68,6 @@ namespace app.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -93,18 +97,10 @@ namespace app.Migrations
 
                     b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("State");
-
-                    b.Property<string>("StreetAddress");
-
-                    b.Property<int?>("SubscriptionId");
-
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
-
-                    b.Property<string>("Zip");
 
                     b.HasKey("Id");
 
@@ -116,23 +112,7 @@ namespace app.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("SubscriptionId");
-
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("app.Models.Subscription", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("BusinessId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BusinessId");
-
-                    b.ToTable("Subscriptions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -241,27 +221,6 @@ namespace app.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("app.Models.Deal", b =>
-                {
-                    b.HasOne("app.Models.Security.AppUser", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId");
-                });
-
-            modelBuilder.Entity("app.Models.Security.AppUser", b =>
-                {
-                    b.HasOne("app.Models.Subscription")
-                        .WithMany("Customers")
-                        .HasForeignKey("SubscriptionId");
-                });
-
-            modelBuilder.Entity("app.Models.Subscription", b =>
-                {
-                    b.HasOne("app.Models.Security.AppUser", "Business")
-                        .WithMany()
-                        .HasForeignKey("BusinessId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

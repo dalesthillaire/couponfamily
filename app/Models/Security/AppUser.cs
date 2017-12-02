@@ -7,9 +7,5 @@ namespace app.Models.Security
     public class AppUser: IdentityUser
     {
         public bool IsBusinessUser { get; set; }
-        public string StreetAddress { get; set; }
-        public string State { get; set; }
-        public string City { get; set; }
-        public string Zip { get; set; }
     }
 }
