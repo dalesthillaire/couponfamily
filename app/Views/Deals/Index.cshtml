@@ -5,165 +5,167 @@
     ViewData["Title"] = "My Current Deals";
 }
 <style>
-.coupon {
-    border: 3px dashed #bcbcbc;
-    border-radius: 10px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
-    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
-}
-
-.coupon #head {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    min-height: 56px;
-}
-
-.coupon #footer {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-#title .visible-xs {
-    font-size: 12px;
-}
-
-.coupon #title img {
-    font-size: 30px;
-    height: 30px;
-    margin-top: 5px;
-}
-
-@@media screen and (max-width: 500px) {
-    .coupon #title img {
-        height: 15px;
+    .coupon {
+        border: 3px dashed #bcbcbc;
+        border-radius: 10px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
     }
-}
 
-.coupon #title span {
-    float: right;
-    margin-top: 5px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
+        .coupon #head {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            min-height: 56px;
+        }
 
-.coupon-img {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 0;
-}
+        .coupon #footer {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
 
-.items {
-    margin: 15px 0;
-}
+    #title .visible-xs {
+        font-size: 12px;
+    }
 
-.usd, .cents {
-    font-size: 20px;
-}
+    .coupon #title img {
+        font-size: 30px;
+        height: 30px;
+        margin-top: 5px;
+    }
 
-.number {
-    font-size: 40px;
-    font-weight: 700;
-}
+    @@media screen and (max-width: 500px) {
+        .coupon #title img {
+            height: 15px;
+        }
+    }
 
-sup {
-    top: -15px;
-}
+    .coupon #title span {
+        float: right;
+        margin-top: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
 
-#business-info ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    text-align: center;
-}
+    .coupon-img {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 0;
+    }
 
-#business-info ul li { 
-    display: inline;
-    text-align: center;
-}
+    .items {
+        margin: 15px 0;
+    }
 
-#business-info ul li span {
-    text-decoration: none;
-    padding: .2em 1em;
-}
+    .usd, .cents {
+        font-size: 20px;
+    }
 
-#business-info ul li span i {
-    padding-right: 5px;
-}
+    .number {
+        font-size: 40px;
+        font-weight: 700;
+    }
 
-.disclosure {
-    padding-top: 15px;
-    font-size: 11px;
-    color: #bcbcbc;
-    text-align: center;
-}
+    sup {
+        top: -15px;
+    }
 
-.coupon-code {
-    color: #333333;
-    font-size: 11px;
-}
+    #business-info ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+    }
 
-.exp {
-    color: #f34235;
-}
+        #business-info ul li {
+            display: inline;
+            text-align: center;
+        }
 
-.print {
-    font-size: 14px;
-    float: right;
-}
+            #business-info ul li span {
+                text-decoration: none;
+                padding: .2em 1em;
+            }
 
+                #business-info ul li span i {
+                    padding-right: 5px;
+                }
+
+    .disclosure {
+        padding-top: 15px;
+        font-size: 11px;
+        color: #bcbcbc;
+        text-align: center;
+    }
+
+    .coupon-code {
+        color: #333333;
+        font-size: 11px;
+    }
+
+    .exp {
+        color: #f34235;
+    }
+
+    .print {
+        font-size: 14px;
+        float: right;
+    }
 </style>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
-        @foreach(var deal in Model){
-        <div class="row" id="red">
-                <div class="col-md-5">
-                    <div class="panel panel-danger coupon">
-                    <div class="panel-heading" id="head">
-                        <div class="panel-title" id="title">
-                            <i class="fa fa-github fa-2x"></i>
-                            <span class="hidden-xs">@deal.Name</span>
-                            <span class="visible-xs">@deal.Name</span>
-                        </div>
+@foreach (var deal in Model)
+{
+    <div class="row" id="red">
+        <div class="col-md-5">
+            <div class="panel panel-danger coupon">
+                <div class="panel-heading" id="head">
+                    <div class="panel-title" id="title">
+                        <i class="fa fa-github fa-2x"></i>
+                        <span class="hidden-xs">@deal.Name</span>
+                        <span class="visible-xs">@deal.Name</span>
                     </div>
-                    <div class="panel-body">
-                        <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
-                        <div class="col-md-12 well well-sm">
-                            <div id="business-info">
-                                <ul>
-                                    <li><span><i class="fa fa-phone"></i>@deal.Phone</span></li>
-                                    <li><span><i class="fa fa-map-marker"></i> 
+                </div>
+                <div class="panel-body">
+                    <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                    <div class="col-md-12 well well-sm">
+                        <div id="business-info">
+                            <ul>
+                                <li><span><i class="fa fa-phone"></i>@deal.Phone</span></li>
+                                <li>
+                                    <span>
+                                        <i class="fa fa-map-marker"></i>
                                         @deal.StreetAddress @deal.City, @deal.State
-                                        </span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                           @deal.Detail
-                        </div>
-                        <div class="col-md-4">
-                            <div class="offer text-danger">
-                                <span class="usd"><sup>$</sup></span>
-                                <span class="number">39</span>
-                                <span class="cents"><sup>95</sup></span>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <p class="disclosure">@deal.Disclaimer</p>
+                                    </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="panel-footer">
-                        <div class="coupon-code">
-                            Code: @deal.Code
-                            <span class="print">
-                                <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
-                            </span>
-                        </div>
-                        <div class="exp">Expires: @string.Format("{0:MMMM dd, yyyy}", @deal.Expiration)</div>
+                    <div class="col-md-8">
+                        @deal.Detail
                     </div>
-                  </div>
+                    <div class="col-md-4">
+                        <div class="offer text-danger">
+                            <span class="usd"><sup>$</sup></span>
+                            <span class="number">39</span>
+                            <span class="cents"><sup>95</sup></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="disclosure">@deal.Disclaimer</p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="coupon-code">
+                        Code: @deal.Code
+                        <span class="print">
+                            <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+                        </span>
+                    </div>
+                    <div class="exp">Expires: @string.Format("{0:MMMM dd, yyyy}", @deal.Expiration)</div>
+                </div>
             </div>
-         </div>
-        }
- 
+        </div>
+    </div>
+}
+
