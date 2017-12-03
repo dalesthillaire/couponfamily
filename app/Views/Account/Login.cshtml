@@ -401,6 +401,9 @@
                             </form>
                             <form id="register-form" action="Register" method="post" role="form" class="form-no-display">
                                 @Html.AntiForgeryToken()
+								<div class="form-group">
+									<input type="text" name="Name" id="Name" tabindex="1" class="form-control" placeholder="Enter Name" value="">
+								</div>
                                 <div class="form-group">
                                     <input type="email" name="RegisterEmail" id="RegisterEmail" tabindex="1" class="form-control" placeholder="Email Address" value="">
                                 </div>
@@ -410,6 +413,18 @@
                                 <div class="form-group">
                                     <input type="password" name="RegisterConfirmPassword" id="RegisterConfirmPassword" tabindex="2" class="form-control" placeholder="Confirm Password">
                                 </div>
+								<div class="form-group radio">
+									<label class="radio-inline">
+										<input type="radio" name="optradio" checked="checked">Customer
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="optradio">Business
+									</label>
+								</div>
+								<select class="form-control form-group">
+									<option>Select City</option>
+									<option>Washington D.C.</option>
+								</select>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
