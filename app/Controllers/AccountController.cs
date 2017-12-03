@@ -78,7 +78,13 @@ namespace app.Controllers
         public async  Task<IActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid) return View();
-            var user = new AppUser() {UserName = model.RegisterEmail, Email = model.RegisterEmail};
+            var user = new AppUser()
+            {
+                Name = model.Name.Trim(),
+                UserName = model.RegisterEmail.Trim(),
+                Email = model.RegisterEmail.Trim(),
+                IsBusinessUser = model.AccountType == "Business"
+            };
             var result = await _userManager.CreateAsync(user, model.RegisterConfirmPassword);
 
             if (result.Succeeded)
@@ -86,7 +92,7 @@ namespace app.Controllers
                 await _signInManager.SignInAsync(user, true);
                 return RedirectToAction("Index", "Deals");
             }
-            //todo, display the error messages back to the user on the registration form
+       
             AddErrors(result);
             return RedirectToAction(nameof(Login), "Account");
         }

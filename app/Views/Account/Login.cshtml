@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Login";
-  }
+}
+@model app.Models.Security.RegisterViewModel
 <style>
 
     .form-display {
@@ -394,12 +395,12 @@
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <input type="text" name="Email" id="Email" tabindex="1" class="form-control" required value="">
-									<label class="form-control-placeholder" for="Email">Email</label>
+                                    <label class="form-control-placeholder" for="Email">Email</label>
                                 </div>
-								<div class="form-group">
-									<input type="password" name="Password" id="Password" class="form-control" required value="">
-									<label class="form-control-placeholder" for="Password">Password</label>
-								</div>
+                                <div class="form-group">
+                                    <input type="password" name="Password" id="Password" class="form-control" required value="">
+                                    <label class="form-control-placeholder" for="Password">Password</label>
+                                </div>
                                 <div class="form-group text-center">
                                     <input type="checkbox" tabindex="3" class="" name="RememberMe" id="RememberMe">
                                     <label for="RememberMe"> Remember Me</label>
@@ -421,8 +422,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <form id="register-form" action="Register" method="post" role="form" class="form-no-display">
-                                @Html.AntiForgeryToken()
+                            <form id="register-form"  asp-controller="Account" asp-action="Register" method="post" class="form-no-display" role="form">
+                                <div asp-validation-summary="All" class="text-danger"></div>
 								<div class="form-group">
 									<input type="text" name="Name" id="Name" class="form-control" required value="">
 									<label class="form-control-placeholder" for="Name">Name</label>
@@ -433,24 +434,24 @@
                                 </div>
 								<div class="form-group">
 									<input type="password" name="RegisterPassword" id="RegisterPassword" class="form-control"  required value="">
-									<label class="form-control-placeholder" for="password">Password</label>
+									<label class="form-control-placeholder" for="RegisterPassword">Password</label>
 								</div>
                                 <div class="form-group">
                                     <input type="password" name="RegisterConfirmPassword" id="RegisterConfirmPassword" class="form-control"  required value="">
 									<label class="form-control-placeholder" for="RegisterConfirmPassword">Confirm Password</label>
                                 </div>
 								<div class="dropdown form-group">
-									<label for="dropdown">Account Type</label>
-									<select class="form-control ">
-										<option selected="selected">Customer</option>
-										<option>Business</option>
+									<label for="AccountType">Account Type</label>
+									<select asp-for="AccountType" class="form-control" id="AccountType">
+										<option value="Customer" selected="selected">Customer</option>
+										<option value="Business">Business</option>
 									</select>
 								</div>
 								<div class="dropdown form-group">
-									<label for="location">Location</label>
-									<select class="form-control location">
-										<option>Select City</option>
-										<option selected="selected">Washington D.C.</option>
+									<label for="Location">Location</label>
+									<select asp-for="Location" class="form-control" id="Location">
+										<option value="">Select City</option>
+										<option value="Washington D.C."selected="selected">Washington D.C.</option>
 									</select>
 								</div>
                                 <div class="form-group">
