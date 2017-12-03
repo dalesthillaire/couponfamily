@@ -53,8 +53,15 @@ namespace app.Controllers
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 return View(model);
             }
-
         }
+		
+		 // GET: /Account/Detail
+        [HttpGet]
+        public IActionResult Detail()
+        {
+            return View();
+        }
+		
         // GET: /Account/Register
         [HttpGet]
         [AllowAnonymous]
