@@ -116,6 +116,26 @@
         border-color: #1CA347;
     }
 
+	.form-group {
+		position: relative;
+		margin-bottom: 1.5rem;
+	}
+
+	.form-control-placeholder {
+		position: absolute;
+		top: 0;
+		padding: 7px 0 0 13px;
+		transition: all 200ms;
+		opacity: 0.5;
+	}
+
+	.form-control:focus + .form-control-placeholder,
+	.form-control:valid + .form-control-placeholder {
+		font-size: 75%;
+		transform: translate3d(0, -100%, 0);
+		opacity: 1;
+	}
+
 #testimonial4{
   overflow: hidden;
   min-height: 375px;
@@ -373,11 +393,13 @@
                             <form id="login-form" action="Login" method="post" role="form" class="form-display">
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
-                                     <input type="text" name="Email" id="Email" tabindex="1" class="form-control" placeholder="Enter Email" value="">
+                                    <input type="text" name="Email" id="Email" tabindex="1" class="form-control" required value="">
+									<label class="form-control-placeholder" for="Email">Email</label>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" name="Password" id="Password" tabindex="2" class="form-control" placeholder="Password">
-                                </div>
+								<div class="form-group">
+									<input type="password" name="Password" id="Password" class="form-control" required value="">
+									<label class="form-control-placeholder" for="Password">Password</label>
+								</div>
                                 <div class="form-group text-center">
                                     <input type="checkbox" tabindex="3" class="" name="RememberMe" id="RememberMe">
                                     <label for="RememberMe"> Remember Me</label>
@@ -402,29 +424,33 @@
                             <form id="register-form" action="Register" method="post" role="form" class="form-no-display">
                                 @Html.AntiForgeryToken()
 								<div class="form-group">
-									<input type="text" name="Name" id="Name" tabindex="1" class="form-control" placeholder="Enter Name" value="">
+									<input type="text" name="Name" id="Name" class="form-control" required value="">
+									<label class="form-control-placeholder" for="Name">Name</label>
 								</div>
                                 <div class="form-group">
-                                    <input type="email" name="RegisterEmail" id="RegisterEmail" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                    <input type="text" name="RegisterEmail" id="RegisterEmail" class="form-control" required value="">
+									<label class="form-control-placeholder" for="RegisterEmail">Email</label>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" name="RegisterPassword" id="RegisterPassword" tabindex="2" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="RegisterConfirmPassword" id="RegisterConfirmPassword" tabindex="2" class="form-control" placeholder="Confirm Password">
-                                </div>
-								<div class="form-group radio">
-									<label class="radio-inline">
-										<input type="radio" name="optradio" checked="checked">Customer
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="optradio">Business
-									</label>
+								<div class="form-group">
+									<input type="password" name="RegisterPassword" id="RegisterPassword" class="form-control"  required value="">
+									<label class="form-control-placeholder" for="password">Password</label>
 								</div>
-								<select class="form-control form-group">
-									<option>Select City</option>
-									<option>Washington D.C.</option>
-								</select>
+                                <div class="form-group">
+                                    <input type="password" name="RegisterConfirmPassword" id="RegisterConfirmPassword" class="form-control"  required value="">
+									<label class="form-control-placeholder" for="RegisterConfirmPassword">Confirm Password</label>
+                                </div>
+								<div class="dropdown form-group">
+									<select class="form-control ">
+										<option selected="selected">Customer</option>
+										<option>Business</option>
+									</select>
+								</div>
+								<div class="dropdown form-group">
+									<select class="form-control ">
+										<option>Select City</option>
+										<option selected="selected">Washington D.C.</option>
+									</select>
+								</div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
