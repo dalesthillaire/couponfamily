@@ -124,6 +124,39 @@
       padding: 10px;
     }
 
+    .ribbon {
+      padding: 0 0 10px 0;
+      position: absolute;
+      right: 28px;
+      top: -0.25em;
+      width: 40px;
+}
+    .ribbon a {
+      background: #bb3a34;
+      background: linear-gradient(#e74841 0%, #bb3a34 100%);
+      color: #fff;
+      padding: 0.5em 0;
+      text-align: center;
+      text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+      display: block;
+      cursor: pointer;
+    }
+
+    .ribbon a:hover {
+      text-decoration: none;
+    }
+    .ribbon a:after {
+      border-left: 20px solid #bb3a34;
+      border-right: 20px solid #bb3a34;
+      border-bottom: 10px solid transparent;
+      bottom: 0;
+      content: '';
+      height: 0;
+      left: 0;
+      position: absolute;
+      width: 0;
+}
+
 </style>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
@@ -221,8 +254,12 @@
 
 <div class="row" id="red">
 @foreach (var deal in Model)
-{
+{       
         <div class="col-md-5">
+        <div class="ribbon">
+          <a class="symbol">+</a>
+        </div>
+
             <div class="panel panel-danger coupon">
                 <div class="panel-heading" id="head">
                     <div class="panel-title deal-name" id="title">
@@ -279,5 +316,13 @@
     selector: "[data-toggle='tooltip']",
     container: "body"
   })
+
+  $(".symbol").click(function(e) {
+    e.preventDefault();
+    var txt = $(this).text();
+    $(this).text(
+        txt == "+" ? "-" : "+"); 
+   })
+
 </script>
 
