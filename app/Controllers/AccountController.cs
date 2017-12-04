@@ -90,7 +90,13 @@ namespace app.Controllers
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, true);
-                return RedirectToAction("Index", "Deals");
+
+                if(user.IsBusinessUser){
+                    return RedirectToAction("Register", "Account");
+                }
+                else{
+                    return RedirectToAction("Index","Deals");
+                }
             }
        
             AddErrors(result);
