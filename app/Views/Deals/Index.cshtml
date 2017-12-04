@@ -12,18 +12,11 @@
         font-weight: 300;
     }
 
-        .coupon #head {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            min-height: 56px;
-        }
+    .coupon #head {
+        min-height: 30px;
+    }
 
-        .coupon #footer {
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-
-    #title .visible-xs {
+     #title .visible-xs {
         font-size: 12px;
     }
 
@@ -40,10 +33,12 @@
     }
 
     .coupon #title span {
-        float: right;
-        margin-top: 5px;
         font-weight: 700;
         text-transform: uppercase;
+    }
+
+    .coupon .deal-name {
+      text-align: center;
     }
 
     .coupon-img {
@@ -110,18 +105,127 @@
         font-size: 14px;
         float: right;
     }
+
+    .featuredText {
+      cursor: pointer;
+      color: #999;
+      word-spacing: -10px;
+    }
+
+    .sponsored-deals .offer {
+      font-weight: bold;
+    }
+
+    .sponsored-deals .coupon {
+      border: 1px dashed #bcbcbc;
+    }
+
+    .sponsored-deals .cpupon .panel-body {
+      padding: 10px;
+    }
+
 </style>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
+<div class="panel panel-default sponsored-deals">
+  <div class="panel-heading">
+    <h3 class="panel-title clear" style="display: inline-block;">Sponsored Deals</h3>
+    <div class=" aboutFeatured pull-right">
+      <span class="featuredText icon icon-info2 glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="left" data-original-title="Offers in this section include some of our best recent deals and may be sponsored by the merchant.">About Sponsered</span>
+      
+    </div>
+  </div>
+  <div class="panel-body">
+    
+    <div class="row">
+         <div class="col-md-4">
+            <div class="panel panel-default coupon">
+               <div class="panel-heading" id="head">
+                  <div class="panel-title" id="title">
+                     <span class="hidden-xs">Automatic Transmission Service</span>
+                     <span class="visible-xs">Automatic Transmission Service</span>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <div class="col-md-9 detail">
+                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  </div>
+                  <div class="col-md-3">
+                     <div class="offer">
+                        <span>$39</span>
+                        <span>.95</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="exp">Expires: Sep 30, 2016</div>
+               </div>
+            </div>
+         </div>
+     <div class="col-md-4">
+            <div class="panel panel-default coupon">
+               <div class="panel-heading" id="head">
+                  <div class="panel-title" id="title">
+                     <span class="hidden-xs">Automatic Transmission Service</span>
+                     <span class="visible-xs">Automatic Transmission Service</span>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <div class="col-md-9 detail">
+                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  </div>
+                  <div class="col-md-3">
+                     <div class="offer">
+                        <span>$39</span>
+                        <span>.95</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="exp">Expires: Sep 30, 2016</div>
+               </div>
+            </div>
+         </div>
+     <div class="col-md-4">
+            <div class="panel panel-default coupon">
+               <div class="panel-heading" id="head">
+                  <div class="panel-title" id="title">
+                     <span class="hidden-xs">Automatic Transmission Service</span>
+                     <span class="visible-xs">Automatic Transmission Service</span>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <div class="col-md-9 detail">
+                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  </div>
+                  <div class="col-md-3">
+                     <div class="offer">
+                        <span>$39</span>
+                        <span>.95</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="exp">Expires: Sep 30, 2016</div>
+               </div>
+            </div>
+         </div>
+</div>
+
+  </div>
+</div>
+
+<div class="row" id="red">
 @foreach (var deal in Model)
 {
-    <div class="row" id="red">
         <div class="col-md-5">
             <div class="panel panel-danger coupon">
                 <div class="panel-heading" id="head">
-                    <div class="panel-title" id="title">
-                        <i class="fa fa-github fa-2x"></i>
+                    <div class="panel-title deal-name" id="title">
                         <span class="hidden-xs">@deal.Name</span>
                         <span class="visible-xs">@deal.Name</span>
                     </div>
@@ -166,6 +270,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 }
+</div>
+
+<script type="text/javascript">
+   $("body").tooltip({   
+    selector: "[data-toggle='tooltip']",
+    container: "body"
+  })
+</script>
 
