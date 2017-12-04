@@ -10,6 +10,9 @@ namespace app.Models.Security
         [DataType(DataType.Text)]
         public string Name { get; set; }
 
+        // [DataType(DataType.PhoneNumber)]
+        // public string PhoneNumber { get; set; }
+
         [Required]
         [EmailAddress]
         public string RegisterEmail { get; set; }
