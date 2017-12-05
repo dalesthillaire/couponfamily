@@ -1,7 +1,79 @@
-﻿@{
+﻿@model app.Models.BusinessRegistrationViewModel
+
+@{
     ViewData["Title"] = "Create Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
 <p>Create Account on this page</p>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BReg.ContactName" class="control-label"></label>
+                <input asp-for="BReg.ContactName" class="form-control" />
+                <span asp-validation-for="BReg.ContactName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BReg.Phone" class="control-label"></label>
+                <input asp-for="BReg.Phone" class="form-control" />
+                <span asp-validation-for="BReg.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BReg.Name" class="control-label"></label>
+                <input asp-for="BReg.Name" class="form-control" />
+                <span asp-validation-for="BReg.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BReg.StreetAddress" class="control-label"></label>
+                <input asp-for="BReg.StreetAddress" class="form-control" />
+                <span asp-validation-for="BReg.StreetAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BReg.State" class="control-label"></label>
+                <input asp-for="BReg.State" class="form-control" />
+                <span asp-validation-for="BReg.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BReg.Zip" class="control-label"></label>
+                <input asp-for="BReg.Zip" class="form-control" />
+                <span asp-validation-for="BReg.Zip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BReg.AutoRenewSubscription" class="control-label"></label>
+                <input asp-for="BReg.AutoRenewSubscription" class="form-control" />
+                <span asp-validation-for="BReg.AutoRenewSubscription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BReg.ImageUrl" class="control-label"></label>
+                <input asp-for="BReg.ImageUrl" class="form-control" />
+                <span asp-validation-for="BReg.ImageUrl" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="CCard.Number" class="control-label"></label>
+                <input asp-for="CCard.Number" class="form-control" />
+                <span asp-validation-for="CCard.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCard.ExpirationDate" class="control-label"></label>
+                <input asp-for="CCard.ExpirationDate" class="form-control" />
+                <span asp-validation-for="CCard.ExpirationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCard.CVV" class="control-label"></label>
+                <input asp-for="CCard.CVV" class="form-control" />
+                <span asp-validation-for="CCard.CVV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
