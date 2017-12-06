@@ -33,3 +33,23 @@
         display: none;
     }
 }
+
+#banner {
+/*    width: 272px;
+    height: 159px;*/
+    width: 544px;
+    height: 368px;
+    margin: auto;
+    align-content:center;
+    text-align: center; /*centers horizontally*/
+    /*line-height: 300px; */ /*same as height and for centering vertically*/ 
+}
+
+#banner_img {
+    width: 100%;
+    height: 100%;
+}
+
+#banner_slogan {
+    vertical-align:bottom;
+}
