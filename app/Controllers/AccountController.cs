@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
+using app.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -75,7 +76,7 @@ namespace app.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async  Task<IActionResult> Register(RegisterViewModel model)
+        public async  Task<IActionResult> Register(CustomerRegistrationViewModel model)
         {
             if (!ModelState.IsValid) return View();
             var user = new AppUser()
@@ -91,18 +92,36 @@ namespace app.Controllers
             {
                 await _signInManager.SignInAsync(user, true);
 
-                if(user.IsBusinessUser){
-                    return RedirectToAction("Register", "Account");
-                }
-                else{
-                    return RedirectToAction("Index","Deals");
-                }
+                return user.IsBusinessUser ? 
+                    RedirectToAction("Register", "Account", new BusinessRegistrationViewModel()) : 
+                    RedirectToAction("Index","Deals");
             }
        
             AddErrors(result);
             return RedirectToAction(nameof(Login), "Account");
         }
 
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterBusiness(BusinessRegistrationViewModel model)
+        {
+            if (!ModelState.IsValid) return View("Register", model);
+          
+            //get the current user
+            var currentUser = await _userManager.GetUserAsync(Request.HttpContext.User);
+            currentUser.City = "D.C.";
+            currentUser.State = model.State;
+            currentUser.StreetAddress = model.StreetAddress;
+            currentUser.Zip = model.Zip;
+
+            var result = await _userManager.UpdateAsync(currentUser);
+            if (result.Succeeded) RedirectToAction("Index", "Deals");
+
+            AddErrors(result);
+            return RedirectToAction(nameof(Login), "Account");
+        }
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]

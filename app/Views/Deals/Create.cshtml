@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create A New Deal</h2>
+<h2>Add A New Deal</h2>
 
 <hr />
 <div class="row">
@@ -13,58 +13,40 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+              <div class="form-group">
                 <label asp-for="Detail" class="control-label"></label>
-                <input asp-for="Detail" class="form-control" />
+                <textarea id="Detail" name="Detail" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="Detail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Zip" class="control-label"></label>
-                <input asp-for="Zip" class="form-control" />
-                <span asp-validation-for="Zip" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Disclaimer" class="control-label"></label>
-                <input asp-for="Disclaimer" class="form-control" />
+                <textarea id="Disclaimer" name="Disclaimer" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="Disclaimer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cost" class="control-label"></label>
-                <input asp-for="Cost" class="form-control" />
-                <span asp-validation-for="Cost" class="text-danger"></span>
+               <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="text" class="form-control"/>
+              </div>
             </div>
             <div class="form-group">
                 <label asp-for="CostDescription" class="control-label"></label>
-                <input asp-for="CostDescription" class="form-control" />
+                <textarea id="CostDescription" name="CostDescription" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="CostDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" class="form-control" />
+                <input type="date" name="StartDate" class="form-control"/>
                 <span asp-validation-for="StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Expiration" class="control-label"></label>
-                <input asp-for="Expiration" class="form-control" />
+               <input type="date" name="Expiration" class="form-control"/>
                 <span asp-validation-for="Expiration" class="text-danger"></span>
             </div>
             <div class="form-group">
