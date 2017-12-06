@@ -172,6 +172,7 @@
   <div class="panel-body">
     
     <div class="row">
+      <!--Begin for loop for sponsored content-->
          <div class="col-md-4">
             <div class="panel panel-default coupon">
                <div class="panel-heading" id="head">
@@ -247,6 +248,7 @@
                </div>
             </div>
          </div>
+      <!--End loop-->
 </div>
 
   </div>
@@ -257,7 +259,7 @@
 {       
         <div class="col-md-5">
         <div class="ribbon">
-          <a class="symbol">+</a>
+          <a class="symbol">-</a>
         </div>
 
             <div class="panel panel-danger coupon">
@@ -299,8 +301,13 @@
                 <div class="panel-footer">
                     <div class="coupon-code">
                         Code: @deal.Code
+
+                        <!--If business account display edit link, else display print link -->
                         <span class="print">
                             <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+                        </span>
+                        <span class="print edit">
+                            <a href="#" class="btn btn-link">Edit Deal</a>
                         </span>
                     </div>
                     <div class="exp">Expires: @string.Format("{0:MMMM dd, yyyy}", @deal.Expiration)</div>
