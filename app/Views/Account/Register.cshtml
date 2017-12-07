@@ -10,29 +10,38 @@
 <p>Create Account on this page</p>
 
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="RegisterBusiness">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ContactName" class="control-label"></label>
-                <input asp-for="ContactName" class="form-control" />
-                <span asp-validation-for="ContactName" class="text-danger"></span>
-            </div>
+            <h2>Company Information</h2>
+                <div class="form-group">
+                    <label class="control-label">Contact Name</label>
+                    <input asp-for="ContactName" class="form-control" />
+                    <span asp-validation-for="ContactName" class="text-danger"></span>
+                </div>
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label class="control-label">Company Name</label>
+                <!--<label asp-for="Name" class="control-label"></label>-->
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StreetAddress" class="control-label"></label>
+                <!--<label asp-for="StreetAddress" class="control-label"></label>-->
+                <label class="control-label">Street Address</label>
                 <input asp-for="StreetAddress" class="form-control" />
                 <span asp-validation-for="StreetAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="State" class="control-label"></label>
@@ -45,35 +54,100 @@
                 <span asp-validation-for="Zip" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AutoRenewSubscription" class="control-label"></label>
+                <label class="control-label">Auto-Renew Subscription?</label>
+                <!--<label asp-for="AutoRenewSubscription" class="control-label"></label>-->
                 <input asp-for="AutoRenewSubscription" class="form-control" />
                 <span asp-validation-for="AutoRenewSubscription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
+                <label class="control-label">Image URL</label>
+                <!--<label asp-for="ImageUrl" class="control-label"></label>-->
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
+<!--            <div class="form-group">-->
+@*                @Html.ListBoxFor(m => m.SelectedCities, Model.Cities, new { size = 1 })*@
+<!--                </div>-->
 
+            <div class="dropdown form-group">
+                <label for="AccountType">Category</label>
+                <select asp-for="Category" class="form-control" id="Category"> <!--multiple="multiple">-->
+                    <option value="----Please Select One----" selected="selected">----Please Select One----</option>
+                    <option value="Food" >Food</option>
+                    <option value="   Grocery/International Grocery"> &nbsp;&nbsp;Grocery/International Grocery</option>
+                    <option value="   Breweries">  &nbsp;&nbsp;Breweries</option>
+                    <option value="   Bakeries">   &nbsp;&nbsp;Bakeries</option>
+                    <option value="   Farmers Market">   &nbsp;&nbsp;Farmers Market</option>
+                    <option value="   Food Trucks">   &nbsp;&nbsp;Food Trucks</option>
+                    <option value="   Ice Cream & Frozen Yogurt">   &nbsp;&nbsp;Ice Cream & Frozen Yogurt</option>
+                    <option value="   Wineries">   &nbsp;&nbsp;Wineries</option>
+                    <option value="   Breakfast & Brunch (breakfast_brunch)">   &nbsp;&nbsp;Breakfast & Brunch (breakfast_brunch)</option>
+                    <option value="   Fast Food">   &nbsp;&nbsp;Fast Food</option>
+                    <option value="Books, Mags, Music & Video">Books, Mags, Music & Video</option>
+                    <option value="   Bookstores">   &nbsp;&nbsp;Bookstores</option>
+                    <option value="   Comic Books">   &nbsp;&nbsp;Comic Books</option>
+                    <option value="   Video Game Stores">   &nbsp;&nbsp;Video Game Stores</option>
+                    <option value="Beauty and Spa">Beauty and Spa</option>
+                    <option value="   Barbers">   &nbsp;&nbsp;Barbers</option>
+                    <option value="   Day Spas">   &nbsp;&nbsp;Day Spas</option>
+                    <option value="   Eyebrow Services">   &nbsp;&nbsp;Eyebrow Services</option>
+                    <option value="   Hair Salons">   &nbsp;&nbsp;Hair Salons</option>
+                    <option value="   Makeup Artists">   &nbsp;&nbsp;Makeup Artists</option>
+                    <option value="   Massage">   &nbsp;&nbsp;Massage</option>
+                    <option value="   Nail Salons">   &nbsp;&nbsp;Nail Salons</option>
+                    <option value="   Tattoo">   &nbsp;&nbsp;Tattoo</option>
+                    <option value="Auto">Auto</option>
+                    <option value="   Auto Customization">   &nbsp;&nbsp;Auto Customization</option>
+                    <option value="   Auto Glass Service">   &nbsp;&nbsp;Auto Glass Service</option>
+                    <option value="   Auto Repair">   &nbsp;&nbsp;Auto Repair</option>
+                    <option value="   Car Wash">   &nbsp;&nbsp;Car Wash</option>
+                    <option value="   Oil Change Stations">   &nbsp;&nbsp;Oil Change Stations</option>
+                    <option value="   Tires">   &nbsp;&nbsp;Tires</option>
+                    <option value="Health and Fitness">Health and Fitness</option>
+                    <option value="   Acupuncture">   &nbsp;&nbsp;Acupuncture</option>
+                    <option value="   Counseling & Mental Health">   &nbsp;&nbsp;Counseling & Mental Health</option>
+                    <option value="   Personal Trainers">   &nbsp;&nbsp;Personal Trainers</option>
+                    <option value="   Yoga">   &nbsp;&nbsp;Yoga</option>
+                    <option value="Financial Services">Financial Services</option>
+                    <option value="   Financial Advising">   &nbsp;&nbsp;Financial Advising</option>
+                    <option value="   Tax Services">   &nbsp;&nbsp;Tax Services</option>
+                    <option value="Home and Garden">Home and Garden</option>
+                    <option value="   Appliances">   &nbsp;&nbsp;Appliances</option>
+                    <option value="   Christmas Trees">   &nbsp;&nbsp;Christmas Trees</option>
+                    <option value="   Hardware Stores">   &nbsp;&nbsp;Hardware Stores</option>
+                    <option value="   Pumpkin Patches">   &nbsp;&nbsp;Pumpkin Patches</option>
+                </select>
+            </div>
 
+            <hr />
+            <h2>Payment Information</h2>
             <div class="form-group">
-                <label asp-for="Number" class="control-label"></label>
-                <input asp-for="Number" class="form-control" />
-                <span asp-validation-for="Number" class="text-danger"></span>
+                <label class="control-label">Name On Card</label>
+                <!--<label asp-for="Number" class="control-label"></label>-->
+                <input asp-for="NameOnCard" class="form-control" />
+                <span asp-validation-for="NameOnCard" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ExpirationDate" class="control-label"></label>
-                <input asp-for="ExpirationDate" class="form-control" />
-                <span asp-validation-for="ExpirationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cvv" class="control-label"></label>
-                <input asp-for="Cvv" class="form-control" />
-                <span asp-validation-for="Cvv" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Register" class="btn btn-default" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <label class="control-label">Credit Card Number</label>
+                    <!--<label asp-for="Number" class="control-label"></label>-->
+                    <input asp-for="Number" class="form-control" />
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Expiration Date</label>
+                    <!--<label asp-for="ExpirationDate" class="control-label"></label>-->
+                    <input asp-for="ExpirationDate" class="form-control" />
+                    <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">CVV</label>
+                    <!--<label asp-for="Cvv" class="control-label"></label>-->
+                    <input asp-for="Cvv" class="form-control" />
+                    <span asp-validation-for="Cvv" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn-default" />
+                </div>
+</form>
     </div>
 </div>
