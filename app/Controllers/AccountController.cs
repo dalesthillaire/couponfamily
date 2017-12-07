@@ -82,6 +82,7 @@ namespace app.Controllers
             var user = new AppUser()
             {
                 Name = model.Name.Trim(),
+                PhoneNumber = model.PhoneNumber.Trim(),
                 UserName = model.RegisterEmail.Trim(),
                 Email = model.RegisterEmail.Trim(),
                 IsBusinessUser = model.AccountType == "Business"
@@ -92,12 +93,14 @@ namespace app.Controllers
             {
                 await _signInManager.SignInAsync(user, true);
 
-                return user.IsBusinessUser ? 
-                    RedirectToAction("Register", "Account", new BusinessRegistrationViewModel()) : 
-                    RedirectToAction("Index","Deals");
+                return user.IsBusinessUser
+                    ? RedirectToAction("Register", "Account", new BusinessRegistrationViewModel())
+                    : RedirectToAction("Index", "Deals");
             }
-       
-            AddErrors(result);
+            else
+            {
+                AddErrors(result);
+            }
             return RedirectToAction(nameof(Login), "Account");
         }
 
@@ -115,6 +118,7 @@ namespace app.Controllers
             currentUser.State = model.State;
             currentUser.StreetAddress = model.StreetAddress;
             currentUser.Zip = model.Zip;
+            currentUser.PhoneNumber = model.Phone;
 
             var result = await _userManager.UpdateAsync(currentUser);
             if (result.Succeeded) RedirectToAction("Index", "Deals");

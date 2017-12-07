@@ -25,14 +25,14 @@ namespace app.Services
         public bool  SendMessage(List<string> phoneNumbers, Deal deal)
         {
             //build the message body based on the deal
-            var messageBody = $"{deal.Detail}";
+            var messageBody = $"{deal.Creator.Name} you subscribed to has a new deal. Check it out http://54.227.135.178";
 
             //for each subscriber create the message sent via sms
             foreach (var subScriberPhone in phoneNumbers)
             {
                 var message = MessageResource.Create(
-                    to: new PhoneNumber("+${subScriberPhone}"),
-                    from: new PhoneNumber("+${_accountPhone}"),
+                    to: new PhoneNumber($"+1{subScriberPhone}"),
+                    from: new PhoneNumber($"+1{_accountPhone}"),
                     body: messageBody);
             }
             return true;

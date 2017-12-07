@@ -3,6 +3,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using app.Models;
 using app.Models.Security;
+using Microsoft.EntityFrameworkCore;
 
 namespace app.Services
 {
@@ -16,7 +17,20 @@ namespace app.Services
         }
         public List<Subscription> GetAll()
         {
-            return _context.Subscriptions.ToList();
+            return _context.Subscriptions
+                .Include(x => x.Business)
+                .Include(x => x.Customers)
+                .ToList();
+        }
+
+        //remove a new subscription 
+        public void RemoveSubscription(AppUser business, AppUser subscriber)
+        {
+            var result = _context.Subscriptions.FirstOrDefault(x => x.Business.Id == business.Id);
+            if (result == null) return;
+
+            result.Customers.Remove(subscriber);
+            _context.SaveChanges();
         }
 
         //add a new subscription 
@@ -34,6 +48,8 @@ namespace app.Services
             }
             else
             {
+                if (result.Customers == null) result.Customers = new List<AppUser>();
+
                 //add a new subscriber to the business
                 result.Customers.Add(subscriber);
                 _context.SaveChanges();

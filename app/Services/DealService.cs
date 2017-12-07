@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Security.Cryptography.X509Certificates;
 using app.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace app.Services
 {
@@ -17,11 +18,11 @@ namespace app.Services
         }
         public Deal GetDealById(int id)
         {
-            return _context.Deals.FirstOrDefault(x => x.Id == id);
+            return _context.Deals.Include(x => x.Creator).FirstOrDefault(x => x.Id == id);
         }
        public List<Deal> GetAll()
        {
-           return _context.Deals.ToList();
+           return _context.Deals.Include(x => x.Creator).ToList();
        }
 
         public Deal CreateDeal(Deal deal)

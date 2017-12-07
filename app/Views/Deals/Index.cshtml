@@ -1,6 +1,14 @@
 ﻿@using System.Globalization
 @using app.Models;
 @model List<DealViewModel>
+@using Microsoft.AspNetCore.Identity
+@using app.Models.Security
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+@{
+      var currentUser  = await UserManager.GetUserAsync(User);
+}
 @{
     ViewData["Title"] = "My Current Deals";
 }
@@ -247,19 +255,20 @@
                </div>
             </div>
          </div>
-</div>
-
+    </div>
   </div>
 </div>
 
-<div class="row" id="red">
 @foreach (var deal in Model)
 {       
-        <div class="col-md-5">
+    <div class="row" id="red">
+    <div class="col-md-5">
         <div class="ribbon">
-          <a class="symbol">+</a>
-        </div>
-
+            <form asp-controller="Deals" asp-action="UnSubscribe" method="post">
+                <input type="hidden" name="BusinessId"  value="@deal.BusinessId" >
+                <input type="submit" class="symbol" value="-">
+            </form>
+                </div>
             <div class="panel panel-danger coupon">
                 <div class="panel-heading" id="head">
                     <div class="panel-title deal-name" id="title">
@@ -287,9 +296,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="offer text-danger">
-                            <span class="usd"><sup>$</sup></span>
-                            <span class="number">39</span>
-                            <span class="cents"><sup>95</sup></span>
+                            <span class="number usd">
+                              <sup>$@deal.Cost</sup>
+                            </span>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -299,17 +308,26 @@
                 <div class="panel-footer">
                     <div class="coupon-code">
                         Code: @deal.Code
+                        @{
+                         if(!currentUser.IsBusinessUser){
                         <span class="print">
                             <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
                         </span>
+                         }
+                       if(currentUser.IsBusinessUser){
+                         <span class="print edit">		
+                             <a href="#" class="btn btn-link">Edit Deal</a>		
+                         </span>
+                        }
+                    }
                     </div>
                     <div class="exp">Expires: @string.Format("{0:MMMM dd, yyyy}", @deal.Expiration)</div>
                 </div>
             </div>
         </div>
-    
+    </div>
 }
-</div>
+
 
 <script type="text/javascript">
    $("body").tooltip({   
@@ -317,12 +335,12 @@
     container: "body"
   })
 
-  $(".symbol").click(function(e) {
-    e.preventDefault();
-    var txt = $(this).text();
-    $(this).text(
-        txt == "+" ? "-" : "+"); 
-   })
+   $(".symbol").click(function(e) {
+       // e.preventDefault();
+       var txt = $(this).text();
+       $(this).text(
+           txt == "+" ? "-" : "+");
+   });
 
 </script>
 

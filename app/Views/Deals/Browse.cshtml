@@ -5,3 +5,330 @@
 }
 
 <h2>Browse Deals and subscribe to business</h2>
+
+<style>
+    .coupon {
+        border: 3px dashed #bcbcbc;
+        border-radius: 10px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+    }
+
+    .coupon #head {
+        min-height: 30px;
+    }
+
+     #title .visible-xs {
+        font-size: 12px;
+    }
+
+    .coupon #title img {
+        font-size: 30px;
+        height: 30px;
+        margin-top: 5px;
+    }
+
+    @@media screen and (max-width: 500px) {
+        .coupon #title img {
+            height: 15px;
+        }
+    }
+
+    .coupon #title span {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .coupon .deal-name {
+      text-align: center;
+    }
+
+    .coupon-img {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 0;
+    }
+
+    .items {
+        margin: 15px 0;
+    }
+
+    .usd, .cents {
+        font-size: 20px;
+    }
+
+    .number {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    sup {
+        top: -15px;
+    }
+
+    #business-info ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+    }
+
+        #business-info ul li {
+            display: inline;
+            text-align: center;
+        }
+
+            #business-info ul li span {
+                text-decoration: none;
+                padding: .2em 1em;
+            }
+
+                #business-info ul li span i {
+                    padding-right: 5px;
+                }
+
+    .disclosure {
+        padding-top: 15px;
+        font-size: 11px;
+        color: #bcbcbc;
+        text-align: center;
+    }
+
+    .coupon-code {
+        color: #333333;
+        font-size: 11px;
+    }
+
+    .exp {
+        color: #f34235;
+    }
+
+    .print {
+        font-size: 14px;
+        float: right;
+    }
+
+    .featuredText {
+      cursor: pointer;
+      color: #999;
+      word-spacing: -10px;
+    }
+
+    .sponsored-deals .offer {
+      font-weight: bold;
+    }
+
+    .sponsored-deals .coupon {
+      border: 1px dashed #bcbcbc;
+    }
+
+    .sponsored-deals .cpupon .panel-body {
+      padding: 10px;
+    }
+
+    .ribbon {
+      padding: 0 0 10px 0;
+      position: absolute;
+      right: 28px;
+      top: -0.25em;
+      width: 40px;
+}
+    .ribbon a {
+      background: #bb3a34;
+      background: linear-gradient(#e74841 0%, #bb3a34 100%);
+      color: #fff;
+      padding: 0.5em 0;
+      text-align: center;
+      text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+      display: block;
+      cursor: pointer;
+    }
+
+    .ribbon a:hover {
+      text-decoration: none;
+    }
+    .ribbon a:after {
+      border-left: 20px solid #bb3a34;
+      border-right: 20px solid #bb3a34;
+      border-bottom: 10px solid transparent;
+      bottom: 0;
+      content: '';
+      height: 0;
+      left: 0;
+      position: absolute;
+      width: 0;
+}
+
+</style>
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="panel panel-default sponsored-deals">
+  <div class="panel-heading">
+    <h3 class="panel-title clear" style="display: inline-block;">Sponsored Deals</h3>
+    <div class=" aboutFeatured pull-right">
+      <span class="featuredText icon icon-info2 glyphicon glyphicon-exclamation-sign" data-toggle="tooltip" data-placement="left" data-original-title="Offers in this section include some of our best recent deals and may be sponsored by the merchant.">About Sponsered</span>
+      
+    </div>
+  </div>
+  <div class="panel-body">
+    
+    <div class="row">
+      <!--Begin for loop for sponsored content-->
+         <div class="col-md-4">
+            <div class="panel panel-default coupon">
+               <div class="panel-heading" id="head">
+                  <div class="panel-title" id="title">
+                     <span class="hidden-xs">Automatic Transmission Service</span>
+                     <span class="visible-xs">Automatic Transmission Service</span>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <div class="col-md-9 detail">
+                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  </div>
+                  <div class="col-md-3">
+                     <div class="offer">
+                        <span>$39</span>
+                        <span>.95</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="exp">Expires: Sep 30, 2016</div>
+               </div>
+            </div>
+         </div>
+     <div class="col-md-4">
+            <div class="panel panel-default coupon">
+               <div class="panel-heading" id="head">
+                  <div class="panel-title" id="title">
+                     <span class="hidden-xs">Automatic Transmission Service</span>
+                     <span class="visible-xs">Automatic Transmission Service</span>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <div class="col-md-9 detail">
+                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  </div>
+                  <div class="col-md-3">
+                     <div class="offer">
+                        <span>$39</span>
+                        <span>.95</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="exp">Expires: Sep 30, 2016</div>
+               </div>
+            </div>
+         </div>
+     <div class="col-md-4">
+            <div class="panel panel-default coupon">
+               <div class="panel-heading" id="head">
+                  <div class="panel-title" id="title">
+                     <span class="hidden-xs">Automatic Transmission Service</span>
+                     <span class="visible-xs">Automatic Transmission Service</span>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <div class="col-md-9 detail">
+                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  </div>
+                  <div class="col-md-3">
+                     <div class="offer">
+                        <span>$39</span>
+                        <span>.95</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="exp">Expires: Sep 30, 2016</div>
+               </div>
+            </div>
+         </div>
+      <!--End loop-->
+</div>
+
+  </div>
+</div>
+
+<div class="row" id="red">
+@foreach (var deal in Model)
+{       
+        <div class="col-md-5">
+        <div class="ribbon">
+            <form asp-controller="Deals" asp-action="Subscribe" method="post">
+                <input type="hidden" name="BusinessId"  value="@deal.BusinessId" >
+                <input type="submit" class="symbol" value="+">
+            </form>
+        </div>
+
+            <div class="panel panel-danger coupon">
+                <div class="panel-heading" id="head">
+                    <div class="panel-title deal-name" id="title">
+                        <span class="hidden-xs">@deal.Name</span>
+                        <span class="visible-xs">@deal.Name</span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                    <div class="col-md-12 well well-sm">
+                        <div id="business-info">
+                            <ul>
+                                <li><span><i class="fa fa-phone"></i>@deal.Phone</span></li>
+                                <li>
+                                    <span>
+                                        <i class="fa fa-map-marker"></i>
+                                        @deal.StreetAddress @deal.City, @deal.State
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        @deal.Detail
+                    </div>
+                    <div class="col-md-4">
+                        <div class="offer text-danger">
+                            <span class="usd"><sup>$</sup></span>
+                            <span class="number">39</span>
+                            <span class="cents"><sup>95</sup></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="disclosure">@deal.Disclaimer</p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="coupon-code">
+                        Code: @deal.Code
+                        <span class="print">
+                            <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+                        </span>
+                    </div>
+                    <div class="exp">Expires: @string.Format("{0:MMMM dd, yyyy}", @deal.Expiration)</div>
+                </div>
+            </div>
+        </div>
+    
+}
+</div>
+
+<script type="text/javascript">
+   $("body").tooltip({   
+    selector: "[data-toggle='tooltip']",
+    container: "body"
+  })
+
+  $(".symbol").click(function(e) {
+    //e.preventDefault();
+    var txt = $(this).text();
+    $(this).text(
+        txt == "+" ? "-" : "+"); 
+   })
+
+</script>

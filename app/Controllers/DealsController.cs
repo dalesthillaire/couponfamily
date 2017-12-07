@@ -11,6 +11,7 @@ using app.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using SQLitePCL;
 
 namespace app.Controllers
 {
@@ -22,7 +23,9 @@ namespace app.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly DealService _dealService;
         private readonly SubScriptionService _subscriptionService;
-       
+        private readonly ApplicationDbContext _context;
+
+
 
         public DealsController(
             IMapper mapper,
@@ -31,35 +34,110 @@ namespace app.Controllers
             UserManager<AppUser> userManager
            )
         {
+            _context = context;
             _mapper = mapper;
             _notificationService = notificationService;
             _userManager = userManager;
             _dealService = new DealService(context);
             _subscriptionService = new SubScriptionService(context);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // GET: Deals/UnSubscribe
+        public async Task<IActionResult> Subscribe(string businessId)
+        {
+            var business = _context.Users.FirstOrDefault(x => x.Id == businessId);
+            var customer = await _userManager.GetUserAsync(Request.HttpContext.User);
+            _subscriptionService.AddSubscription(business, customer);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // GET: Deals/UnSubscribe
+        public async Task<IActionResult> UnSubscribe(string businessId)
+        {
+            var business = _context.Users.FirstOrDefault(x => x.Id == businessId);
+            var customer = await _userManager.GetUserAsync(Request.HttpContext.User);
+            _subscriptionService.RemoveSubscription(business, customer);
+
+
+            return RedirectToAction("Index");
+        }
+
         public async Task<IActionResult> Index()
         {
             try
             {
                 //get the current user
+                var dealsResult = new List<Deal>();
                 var currentUser = await _userManager.GetUserAsync(Request.HttpContext.User);
                 var result = _dealService.GetAll();
 
                 if (currentUser.IsBusinessUser)
                 {
                     var userId = currentUser?.Id;
-                    result = result.Where(x => x.Creator.Id == userId).ToList();
+                    result = result.Where(x => x.Creator?.Id == userId).ToList();
+                }
+                else
+                {
+                  var allSubscriptions =  _subscriptionService.GetAll();
+                  var subscriptions = allSubscriptions
+                        .Where(x => x.Customers.Contains(currentUser))
+                        .ToList();
+
+                    foreach (var deal in result)
+                    {
+                        var found = subscriptions?.Where(x => x.Business?.Id == deal.Creator?.Id);
+                        if(found.Any()) dealsResult.Add(deal);
+                    }
                 }
 
-                var viewModel = _mapper.Map<List<DealViewModel>>(result);
+                var viewModel = _mapper.Map<List<DealViewModel>>(dealsResult);
                 foreach (var model in viewModel)
                 {
+                    var creatorId = dealsResult.FirstOrDefault(x => x.Id == model.Id)?.Creator.Id;
                     model.City = currentUser?.City;
                     model.State = currentUser?.State;
                     model.Zip = currentUser?.Zip;
                     model.StreetAddress = currentUser?.StreetAddress;
                     model.Phone = currentUser?.PhoneNumber;
-                    model.BusinessId = currentUser?.Id;
+                    model.BusinessId = creatorId;
+                }
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<IActionResult> Browse()
+        {
+            try
+            {
+                //get the current user
+                var currentUser = await _userManager.GetUserAsync(Request.HttpContext.User);
+                var result = _dealService.GetAll();
+                if (currentUser.IsBusinessUser)
+                {
+                    var userId = currentUser?.Id;
+                    result = result.Where(x => x.Creator?.Id == userId).ToList();
+                }
+
+                var viewModel = _mapper.Map<List<DealViewModel>>(result);
+                foreach (var model in viewModel)
+                {
+                    var creatorId = result.FirstOrDefault(x => x.Id == model.Id)?.Creator.Id;
+                    model.City = currentUser?.City;
+                    model.State = currentUser?.State;
+                    model.Zip = currentUser?.Zip;
+                    model.StreetAddress = currentUser?.StreetAddress;
+                    model.Phone = currentUser?.PhoneNumber;
+                    model.BusinessId = creatorId;
                 }
                 return View(viewModel);
             }
@@ -72,11 +150,6 @@ namespace app.Controllers
 
         // GET: Deal/Create
         public ActionResult Create()
-        {
-            return View();
-        }
-
-        public ActionResult Browse()
         {
             return View();
         }
@@ -99,13 +172,20 @@ namespace app.Controllers
                 var result = _dealService.CreateDeal(model);
 
                 //get the customers who are subscribed to the business
-                var subscription = _subscriptionService.GetAll().FirstOrDefault(x => x.Business.Id == result.Creator.Id);
-                if (subscription == null) return RedirectToAction(nameof(Index));
+                var subscriptions = _subscriptionService.GetAll()
+                    .Where(x => x.Business.Id == result.Creator.Id)
+                    .ToList();
+
+                if (!subscriptions.Any()) return RedirectToAction(nameof(Index));
                 {
                     //get all the phone numbers for the customers subscribed to the buiness who created the deal
-                    var customerPhoneNumbers = subscription.Customers.Select(x => x.PhoneNumber).ToList();
-                    //call the notification service
-                    _notificationService.SendMessage(customerPhoneNumbers, model);
+                    foreach (var subscription in subscriptions)
+                    {
+                        var customerPhoneNumbers = subscription.Customers.Select(x => x.PhoneNumber).ToList();
+                        //call the notification service
+                        _notificationService.SendMessage(customerPhoneNumbers, model);
+                    }
+                   
                 }
                 return RedirectToAction(nameof(Index));
             }

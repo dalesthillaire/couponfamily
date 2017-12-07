@@ -25,9 +25,14 @@ namespace app.Models.Security
         [DataType(DataType.Password)]
         public string RegisterConfirmPassword { get; set; }
 
+        
         [Required]
         [DataType(DataType.Text)]
         public string AccountType { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [DataType(DataType.Text)]

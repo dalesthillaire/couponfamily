@@ -438,7 +438,12 @@
 								</div>
                                 <div class="form-group">
                                     <input type="password" name="RegisterConfirmPassword" id="RegisterConfirmPassword" class="form-control"  required value="">
-									<label class="form-control-placeholder" for="RegisterConfirmPassword">Confirm Password</label>
+                                    <label class="form-control-placeholder" for="RegisterConfirmPassword">Confirm Password</label>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PhoneNumber" class="control-label"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                 </div>
 								<div class="dropdown form-group">
 									<label for="AccountType">Account Type</label>
