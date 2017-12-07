@@ -107,11 +107,12 @@ Layout = "_Layout";
    top: -0.25em;
    width: 40px;
    }
-   .ribbon .symbol {
+   .ribbon a, .ribbon input {
+    border: none;
    background: #bb3a34;
    background: linear-gradient(#e74841 0%, #bb3a34 100%);
    color: #fff;
-   padding: 0.5em 0;
+   padding: 9px;
    text-align: center;
    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
    display: block;
@@ -230,7 +231,8 @@ Layout = "_Layout";
       <div class="ribbon">
             <form asp-controller="Deals" asp-action="Subscribe" method="post">
                 <input type="hidden" name="BusinessId"  value="@deal.BusinessId" >
-                <input type="submit" class="symbol" value="+">
+                <a >
+                <input class="symbol" type="submit" value="+"></a>
             </form>
       </div>
       <div class="panel panel-danger coupon">
