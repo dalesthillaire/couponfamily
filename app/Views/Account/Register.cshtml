@@ -4,6 +4,10 @@
     ViewData["Title"] = "Create Account";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<body>
+  <style type="text/css">
+    
+  </style>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
@@ -16,22 +20,23 @@
         <form asp-action="RegisterBusiness">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <h2>Company Information</h2>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label">Contact Name</label>
                     <input asp-for="ContactName" class="form-control" />
                     <span asp-validation-for="ContactName" class="text-danger"></span>
-                </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
+                </div> -->
             <div class="form-group">
                 <label class="control-label">Company Name</label>
                 <!--<label asp-for="Name" class="control-label"></label>-->
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            
             <div class="form-group">
                 <!--<label asp-for="StreetAddress" class="control-label"></label>-->
                 <label class="control-label">Street Address</label>
@@ -54,16 +59,21 @@
                 <span asp-validation-for="Zip" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Auto-Renew Subscription?</label>
-                <!--<label asp-for="AutoRenewSubscription" class="control-label"></label>-->
-                <input asp-for="AutoRenewSubscription" class="form-control" />
-                <span asp-validation-for="AutoRenewSubscription" class="text-danger"></span>
+              <label for="ImageUrl">Browse Image</label>
+              <input asp-for="ImageUrl" type="file" id="ImageUrl" name="ImageUrl">
+              <p class="help-block">Upload image for deal.</p>
+              <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label class="control-label">Image URL</label>
-                <!--<label asp-for="ImageUrl" class="control-label"></label>-->
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+   <!--          <div class="form-group ">
+                <label class="control-label" for="AutoRenewSubscription">Auto-Renew Subscription?</label>
+                <input asp-for="AutoRenewSubscription" class="form-control " name="AutoRenewSubscription" type="checkbox" />
+                <span asp-validation-for="AutoRenewSubscription" class="text-danger"></span>
+            </div> -->
+            <div class="checkbox form-group">
+              <label style="font-weight: bold;">
+               <input asp-for="AutoRenewSubscription" name="AutoRenewSubscription" type="checkbox">Auto-Renew Subscription?
+              </label>
+                <span asp-validation-for="AutoRenewSubscription" class="text-danger"></span> 
             </div>
 <!--            <div class="form-group">-->
 @*                @Html.ListBoxFor(m => m.SelectedCities, Model.Cities, new { size = 1 })*@
@@ -151,3 +161,4 @@
 </form>
     </div>
 </div>
+</body>
