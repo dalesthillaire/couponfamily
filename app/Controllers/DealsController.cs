@@ -80,6 +80,7 @@ namespace app.Controllers
                 if (currentUser.IsBusinessUser)
                 {
                     var userId = currentUser?.Id;
+<<<<<<< HEAD
                     result = result.Where(x => x.Creator?.Id == userId).ToList();
                 }
                 else
@@ -126,6 +127,9 @@ namespace app.Controllers
                 {
                     var userId = currentUser?.Id;
                     result = result.Where(x => x.Creator?.Id == userId).ToList();
+=======
+                    result = result.Where(x => x.Creator?.Id == userId).ToList();
+>>>>>>> 079c3ea64433a3afad732230ecd98739ae92ae5d
                 }
 
                 var viewModel = _mapper.Map<List<DealViewModel>>(result);

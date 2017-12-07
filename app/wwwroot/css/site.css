@@ -37,8 +37,8 @@
 #banner {
 /*    width: 272px;
     height: 159px;*/
-    width: 544px;
-    height: 368px;
+    width: 272px;
+    height: 159px;
     margin: auto;
     align-content:center;
     text-align: center; /*centers horizontally*/
@@ -46,8 +46,10 @@
 }
 
 #banner_img {
-    width: 100%;
-    height: 100%;
+    /*    width: 100%;
+    height: 100%;*/
+    width: 50%;
+    height: 50%;
 }
 
 #banner_slogan {
