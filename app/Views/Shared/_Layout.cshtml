@@ -129,9 +129,14 @@
                     <a class="navbar-link" asp-action="Index">Home</a>
                   </li>
                    
-                         @if(!currentUser.IsBusinessUser){
+                  @if(!currentUser.IsBusinessUser){
                   <li>
                       <a class="navbar-link" asp-action="Browse">Browse Deals</a>
+                  </li>
+                  }
+                  @if(currentUser.IsBusinessUser){
+                  <li>
+                      <a class="navbar-link" asp-action="Create">Create Deals</a>
                   </li>
                   }
 
