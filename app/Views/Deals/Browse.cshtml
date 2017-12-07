@@ -235,7 +235,7 @@ Layout = "_Layout";
       <div class="ribbon">
             <form asp-controller="Deals" asp-action="Subscribe" method="post">
                 <input type="hidden" name="BusinessId"  value="@deal.BusinessId" >
-                <a >
+                <a>
                 <input class="symbol" type="submit" value="+"></a>
             </form>
       </div>
@@ -292,13 +292,14 @@ Layout = "_Layout";
    $("body").tooltip({   
     selector: "[data-toggle='tooltip']",
     container: "body"
-   })
+   });
    
-   $(".symbol").click(function(e) {
-    //e.preventDefault();
-    var txt = $(this).text();
-    $(this).text(
+   $(".ribbon a").click(function(e) {
+    // e.preventDefault();
+    var $button = $(".ribbon a").next();
+    var txt = $button.text();
+    $button.text(
         txt == "+" ? "-" : "+"); 
-   })
+   });
    
 </script>

@@ -310,10 +310,11 @@ ViewData["Title"] = "My Current Deals";
     container: "body"
    });
    
-   $(".symbol").click(function(e) {
-       // e.preventDefault();
-    var txt = $(this).text();
-    $(this).text(
+   $(".ribbon a").click(function(e) {
+    // e.preventDefault();
+    var $button = $(".ribbon a").next();
+    var txt = $button.text();
+    $button.text(
         txt == "+" ? "-" : "+"); 
    });
    
