@@ -52,7 +52,7 @@ namespace app.Controllers
             var customer = await _userManager.GetUserAsync(Request.HttpContext.User);
             _subscriptionService.AddSubscription(business, customer);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Browse");
         }
 
         [HttpPost]
