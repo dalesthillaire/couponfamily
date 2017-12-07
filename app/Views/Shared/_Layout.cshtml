@@ -6,217 +6,185 @@
 @inject UserManager<AppUser> UserManager
 <!DOCTYPE html>
 <head>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110603183-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-110603183-1');
-    </script>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - app</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" asp-append-version="true" /> 
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> 
-		<script src="~/lib/jquery/dist/jquery.js"></script>
-		<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-
-        
-    </environment>
-    <style>
-       footer{
-              background-color:#222222;
-              padding: 60px 0px;
-            }
-
-            footer ul{
-                list-style:none;
-                margin:0 auto;
-                display:inline-block;
-                padding-top:50px;
-            }
-
-            footer ul li{
-                float:left;
-            }
-
-            footer ul li a{
-              color:#b1aca1;
-                padding:20px;
-            }
-
-            footer ul li a:hover{
-              color:#7dabdb;
-              text-decoration:none;
-            }
-
-            .footer-top{
-              padding-bottom:50px;
-            }
-
-            .footer-top .fa{
-                font-size:18px;
-                color: #FFF;
-                padding-right:10px;
-            }
-
-            .footer-top a{
-                color:#FFF;
-                text-decoration:none;
-            }
-
-            .footer-top .col-lg-2:hover .fa , .footer-top .col-lg-2:hover a{
-                color:#7dabdb;
-            }
-
-            .copyright p{
-              color: #FFF;
-              font-size:12px;
-              padding:15px 0 10px 0;
-            } 
-    </style>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110603183-1"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-110603183-1');
+   </script>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>@ViewData["Title"] - app</title>
+   <environment include="Development">
+      <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="~/css/site.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" asp-append-version="true" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+      <script src="~/lib/jquery/dist/jquery.js"></script>
+      <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+   </environment>
+   <environment exclude="Development">
+      <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+         asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+         asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+      <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+   </environment>
+   <style>
+      footer{
+      background-color:#222222;
+      padding: 60px 0px;
+      }
+      footer ul{
+      list-style:none;
+      margin:0 auto;
+      display:inline-block;
+      padding-top:50px;
+      }
+      footer ul li{
+      float:left;
+      }
+      footer ul li a{
+      color:#b1aca1;
+      padding:20px;
+      }
+      footer ul li a:hover{
+      color:#7dabdb;
+      text-decoration:none;
+      }
+      .footer-top{
+      padding-bottom:50px;
+      }
+      .footer-top .fa{
+      font-size:18px;
+      color: #FFF;
+      padding-right:10px;
+      }
+      .footer-top a{
+      color:#FFF;
+      text-decoration:none;
+      }
+      .footer-top .col-lg-2:hover .fa , .footer-top .col-lg-2:hover a{
+      color:#7dabdb;
+      }
+      .copyright p{
+      color: #FFF;
+      font-size:12px;
+      padding:15px 0 10px 0;
+      } 
+   </style>
 </head>
 <body>
-    <div id="banner">
-<!--        <center>-->
-            <a target="banner" href="">
-                <img src="/images/coupon_family_logo.png" border="0" style="width: auto; height: auto;max-width: 272px; max-height: 159px" alt="CF Banner"> <!--id="banner_img" -->
-            </a>
-        <div id ="banner_slogan"><i>Become Part of the Family</i></div><!--<b>Become Part of the Family</b>-->
-  <!--      </center>-->
+   <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">CouponFamily</a>
+         </div>
+         <div class="navbar-collapse collapse">
+            @if (SignInManager.IsSignedIn(User))
+            {
+            <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm">
+               <ul class="nav navbar-nav navbar-right">
+                  <li>
+                     <p class="navbar-text">Hello <a class="navbar-link" asp-controller="Manage" asp-action="Index" title="Manage"> @UserManager.GetUserName(User)!</a>
+                     </p>
+                  </li>
+                  <li>
+                  </li>
+                  <li>
+                     <button type="submit" class="btn btn-link navbar-btn navbar-link">Log Off</button>
+                  </li>
+               </ul>
+            </form>
+            }
+         </div>
+      </div>
+   </nav>
+   <div class="container">
+      <div id="banner">
+         <a target="banner" href="">
+         <img src="/images/coupon_family_logo.png" border="0" style="width: auto; height: auto;max-width: 272px; max-height: 159px" alt="CF Banner" id="banner_img">
+         </a>
+         <div id ="banner_slogan"><i>Become Part of the Family</i></div>
+      </div>
     </div>
-	<div class="container">
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-<!--				<a asp-area="" asp-controller="Deals" asp-action="Index" class="navbar-brand">CouponFamily</a>-->
-<!--                <div id="banner">
-
-                    <center>
-                        <a target="banner" href="">
-                            <img src="images/coupon_family_logo.png" border="0" alt="CF Banner">
-                        </a>
-                    </center>
-                </div>-->
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li>
-						@if (SignInManager.IsSignedIn(User))
-						{
-							<form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
-								<ul class="nav navbar-nav navbar-right">
-									<li>
-										<a asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-									</li>
-									<li>
-										<button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
-									</li>
-								</ul>
-							</form>
-						}
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<div class="container body-content">
-			@RenderBody()
-			<hr />
-		</div>
-	</div>
-
-		<footer>
-			<div class="footer-top">
-				<div class="container">
-					<div class="col-lg-3 col-xs-12 text-center">
-						<a href="#"><i class="fa fa-facebook fa-2x"></i>Facebook</a>
-					</div>
-					<div class="col-lg-3 col-xs-12 text-center">
-						<a href="#"><i class="fa fa-twitter fa-2x"></i>Twitter</a>
-					</div>
-					<div class="col-lg-3 col-xs-12 text-center">
-						<a href="#"><i class="fa fa-github fa-2x"></i>Github</a>
-					</div>
-					<div class="col-lg-3 col-xs-12 text-center">
-						<a href="#"><i class="fa fa-google-plus fa-2x"></i>Google</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="container" style="border-top:1px solid #FFF;">
-				<div class="row text-center">
-					<div class="col-lg-6 col-lg-offset-3">
-						<ul class="menu">
-							<li>
-								<a href="#">Home</a>
-							</li>
-
-							<li>
-								<a href="#">About</a>
-							</li>
-
-							<li>
-								<a href="#">Blog</a>
-							</li>
-
-							<li>
-								<a href="#">Contact Us</a>
-							</li>
-
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="copyright">
-				<div class="container">
-
-					<div class="row text-center">
-						<p>Copyright © 2017 All rights reserved</p>
-					</div>
-
-				</div>
-			</div>
-		</footer>
-		<environment include="Development">
-
-			<script src="~/js/site.js" asp-append-version="true"></script>
-		</environment>
-		<environment exclude="Development">
-			<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-					asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-					asp-fallback-test="window.jQuery"
-					crossorigin="anonymous"
+      <div class="container body-content">
+         @RenderBody()
+         <hr />
+      </div>
+   <footer>
+      <div class="footer-top">
+         <div class="container">
+            <div class="col-lg-3 col-xs-12 text-center">
+               <a href="#"><i class="fa fa-facebook fa-2x"></i>Facebook</a>
+            </div>
+            <div class="col-lg-3 col-xs-12 text-center">
+               <a href="#"><i class="fa fa-twitter fa-2x"></i>Twitter</a>
+            </div>
+            <div class="col-lg-3 col-xs-12 text-center">
+               <a href="#"><i class="fa fa-github fa-2x"></i>Github</a>
+            </div>
+            <div class="col-lg-3 col-xs-12 text-center">
+               <a href="#"><i class="fa fa-google-plus fa-2x"></i>Google</a>
+            </div>
+         </div>
+      </div>
+      <div class="container" style="border-top:1px solid #FFF;">
+         <div class="row text-center">
+            <div class="col-lg-6 col-lg-offset-3">
+               <ul class="menu">
+                  <li>
+                     <a href="#">Home</a>
+                  </li>
+                  <li>
+                     <a href="#">About</a>
+                  </li>
+                  <li>
+                     <a href="#">Blog</a>
+                  </li>
+                  <li>
+                     <a href="#">Contact Us</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="copyright">
+         <div class="container">
+            <div class="row text-center">
+               <p>Copyright © 2017 All rights reserved</p>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <environment include="Development">
+      <script src="~/js/site.js" asp-append-version="true"></script>
+   </environment>
+   <environment exclude="Development">
+      <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+         asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+         asp-fallback-test="window.jQuery"
+         crossorigin="anonymous"
 					integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
 			</script>
-			<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-					asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-					asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-					crossorigin="anonymous"
+      <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+         asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+         asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+         crossorigin="anonymous"
 					integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
 			</script>
-			<script src="~/js/site.min.js" asp-append-version="true"></script>
-		</environment>
+      <script src="~/js/site.min.js" asp-append-version="true"></script>
+   </environment>
 
-		@RenderSection("Scripts", required: false)
-    @*@Analytics.GetGoogleHtml("UA-110603183-1")*@		
+   @RenderSection("Scripts", required: false)
+   @*@Analytics.GetGoogleHtml("UA-110603183-1")*@   
 </body>
 
