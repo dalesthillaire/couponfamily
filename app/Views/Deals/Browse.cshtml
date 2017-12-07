@@ -139,6 +139,7 @@ Layout = "_Layout";
 </style>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+
 <div class="panel panel-default sponsored-deals">
    <div class="panel-heading">
       <h3 class="panel-title clear" style="display: inline-block;">Sponsored Deals</h3>
@@ -148,24 +149,48 @@ Layout = "_Layout";
    </div>
    <div class="panel-body">
       <div class="row">
-         <!--Begin for loop for sponsored content-->
          <div class="col-md-4">
             <div class="panel panel-default coupon">
                <div class="panel-heading" id="head">
                   <div class="panel-title" id="title">
-                     <span class="hidden-xs">Automatic Transmission Service</span>
-                     <span class="visible-xs">Automatic Transmission Service</span>
+                     <span class="hidden-xs">Turn Bluu Massage</span>
+                     <span class="visible-xs">Turn Bluu Massage</span>
                   </div>
                </div>
                <div class="panel-body">
-                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <img src="http://www.divdist.com/wp-content/themes/diversified/images/cosmetics-image.jpg" class="coupon-img img-rounded">
                   <div class="col-md-9 detail">
-                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                     One 60-Minute Signature Facial. The spa's offered are combination of hot-stone massages and Swedish massages.
                   </div>
                   <div class="col-md-3">
                      <div class="offer">
                         <span>$39</span>
                         <span>.95</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="exp">Expires: Sep 30, 2018</div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="panel panel-default coupon">
+               <div class="panel-heading" id="head">
+                  <div class="panel-title" id="title">
+                     <span class="hidden-xs">$12 for wine tasting</span>
+                     <span class="visible-xs">$12 for wine tasting</span>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <img src="http://blog.michaelscateringsb.com/.a/6a011168628f10970c01b7c86e66a7970b-320wi" class="coupon-img img-rounded">
+                  <div class="col-md-9 detail">
+                     12 wine samples each. Two take-home wine glasses. Two specialty fudge pairings. Chocolates for each person. 15% off bottle of wine each.
+                  </div>
+                  <div class="col-md-3">
+                     <div class="offer">
+                        <span>$12</span>
+                        <span>.99</span>
                      </div>
                   </div>
                </div>
@@ -178,19 +203,19 @@ Layout = "_Layout";
             <div class="panel panel-default coupon">
                <div class="panel-heading" id="head">
                   <div class="panel-title" id="title">
-                     <span class="hidden-xs">Automatic Transmission Service</span>
-                     <span class="visible-xs">Automatic Transmission Service</span>
+                     <span class="hidden-xs">79% off on Auto Wash</span>
+                     <span class="visible-xs">79% off on Auto Wash</span>
                   </div>
                </div>
                <div class="panel-body">
-                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                  <img src="https://static2.tribute.ca/video/320x240/26853.jpg" class="coupon-img img-rounded">
                   <div class="col-md-9 detail">
-                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                     We Care Auto Wash offers top notch auto detailing and cleaning services including machine buffing, power-wash, wax, and interior cleaning.
                   </div>
                   <div class="col-md-3">
                      <div class="offer">
-                        <span>$39</span>
-                        <span>.95</span>
+                        <span>$55</span>
+                        <span>.00</span>
                      </div>
                   </div>
                </div>
@@ -199,35 +224,10 @@ Layout = "_Layout";
                </div>
             </div>
          </div>
-         <div class="col-md-4">
-            <div class="panel panel-default coupon">
-               <div class="panel-heading" id="head">
-                  <div class="panel-title" id="title">
-                     <span class="hidden-xs">Automatic Transmission Service</span>
-                     <span class="visible-xs">Automatic Transmission Service</span>
-                  </div>
-               </div>
-               <div class="panel-body">
-                  <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
-                  <div class="col-md-9 detail">
-                     (Deals detail goes here )Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                  </div>
-                  <div class="col-md-3">
-                     <div class="offer">
-                        <span>$39</span>
-                        <span>.95</span>
-                     </div>
-                  </div>
-               </div>
-               <div class="panel-footer">
-                  <div class="exp">Expires: Sep 30, 2016</div>
-               </div>
-            </div>
-         </div>
-         <!--End loop-->
       </div>
    </div>
 </div>
+
 <div class="row" id="red">
    @foreach (var deal in Model)
    {       
