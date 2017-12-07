@@ -146,6 +146,8 @@ ViewData["Title"] = "My Current Deals";
 </style>
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+
+@if(!currentUser.IsBusinessUser){
 <div class="panel panel-default sponsored-deals">
    <div class="panel-heading">
       <h3 class="panel-title clear" style="display: inline-block;">Sponsored Deals</h3>
@@ -233,6 +235,9 @@ ViewData["Title"] = "My Current Deals";
       </div>
    </div>
 </div>
+}
+
+
 <div class="row" id="red">
    @foreach (var deal in Model)
    {       
